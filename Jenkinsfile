@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'feature'
+    triggers {
+        githubPush()
+    }
     stages {
         stage('Clone repository') {
             steps {
