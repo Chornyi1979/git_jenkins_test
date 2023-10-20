@@ -15,4 +15,12 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            script {
+                // Заблокувати можливість мержа feature гілки в основну гілку
+                sh 'git push origin :refs/heads/feature'
+            }
+        }
+    }
 }
